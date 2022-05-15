@@ -5,14 +5,14 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
-public class LionConstructorWrongTest  {
+public class LionConstructorWrongTest {
     private final String sexType;
 
     public LionConstructorWrongTest(String sexType) {
         this.sexType = sexType;
     }
 
-    @Parameterized.Parameters // добавили аннотацию
+    @Parameterized.Parameters(name = "Тестовые данные: {0}") // добавили аннотацию
     public static Object[][] getSexTypeData() {
         return new Object[][]{
                 {"самка"},
@@ -25,12 +25,9 @@ public class LionConstructorWrongTest  {
     @Test
     public void constructorLionRightWorks() throws Exception {
         boolean throwsException = false;
-        try
-        {
+        try {
             new Lion(null, sexType);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             throwsException = true;
         }
         Assert.assertTrue(throwsException);

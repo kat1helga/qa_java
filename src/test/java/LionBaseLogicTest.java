@@ -1,5 +1,3 @@
-
-import com.example.Cat;
 import com.example.Lion;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,9 +6,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import com.example.Feline;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.List;
-
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionBaseLogicTest {
@@ -29,21 +25,21 @@ public class LionBaseLogicTest {
         Mockito.when(feline.getKittens()).thenReturn(1);
         Lion lion = new Lion(feline, "Самец");
         int result = lion.getKittens();
-        Assert.assertEquals("Возвращает некорректное значение",1,result);
+        Assert.assertEquals("Возвращает некорректное значение", 1, result);
     }
 
     @Test
     public void doesHaveManeReturnsTrueIfSexMale() throws Exception {
         Lion lion = new Lion(feline, "Самец");
         boolean result = lion.doesHaveMane();
-        Assert.assertTrue("Возвращает некорректное значение",result);
+        Assert.assertTrue("Возвращает некорректное значение", result);
     }
 
     @Test
     public void doesHaveManeReturnsFalseIfSexFemale() throws Exception {
         Lion lion = new Lion(feline, "Самка");
         boolean result = lion.doesHaveMane();
-        Assert.assertFalse("Возвращает некорректное значение",result);
+        Assert.assertFalse("Возвращает некорректное значение", result);
     }
 
     @Test
@@ -66,12 +62,9 @@ public class LionBaseLogicTest {
         Mockito.when(feline.getFood("Хищник")).thenThrow();
         Lion lion = new Lion(feline, "Самец");
         boolean throwsException = false;
-        try
-        {
+        try {
             lion.getFood();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             throwsException = true;
         }
         Assert.assertTrue(throwsException);

@@ -11,7 +11,7 @@ public class LionConstructorTest {
         this.sexType = sexType;
     }
 
-    @Parameterized.Parameters // добавили аннотацию
+    @Parameterized.Parameters(name = "Тестовые данные: {0}") // добавили аннотацию
     public static Object[][] getSexTypeData() {
         return new Object[][]{
                 {"Самка"},

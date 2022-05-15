@@ -10,10 +10,9 @@ public class FelineGetKittensCountLogicTest {
 
     public FelineGetKittensCountLogicTest(int kittensTestCount) {
         this.kittensTestCount = kittensTestCount;
-
     }
 
-    @Parameterized.Parameters // добавили аннотацию
+    @Parameterized.Parameters(name = "Тестовые данные: {0}") // добавили аннотацию
     public static Object[][] getKittensCountData() {
         return new Object[][]{
                 {-1},
@@ -24,10 +23,10 @@ public class FelineGetKittensCountLogicTest {
     }
 
     @Test
-    public void getKittensReturnCount(){
+    public void getKittensReturnCount() {
         Feline feline = new Feline();
         int result = feline.getKittens(kittensTestCount);
         int expectedResult = kittensTestCount;
-        Assert.assertEquals("Значения не равны",expectedResult, result);
+        Assert.assertEquals("Значения не равны", expectedResult, result);
     }
 }

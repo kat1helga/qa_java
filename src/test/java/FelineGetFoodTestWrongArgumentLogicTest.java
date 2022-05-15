@@ -12,7 +12,7 @@ public class FelineGetFoodTestWrongArgumentLogicTest {
         this.animalType = animalType;
     }
 
-    @Parameterized.Parameters // добавили аннотацию
+    @Parameterized.Parameters(name = "Тестовые данные: {0}")// добавили аннотацию
     public static Object[][] getListWrongFoodData() {
         return new Object[][]{
                 {"123"},
@@ -27,12 +27,9 @@ public class FelineGetFoodTestWrongArgumentLogicTest {
         Feline feline = new Feline();
 
         boolean throwsException = false;
-        try
-        {
+        try {
             feline.getFood(animalType);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             throwsException = true;
         }
         Assert.assertTrue(throwsException);
@@ -43,12 +40,9 @@ public class FelineGetFoodTestWrongArgumentLogicTest {
         Feline feline = new Feline();
 
         String exceptionMessage = null;
-        try
-        {
+        try {
             feline.getFood(animalType);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             exceptionMessage = e.getMessage();
         }
         String expectedExceptionMessage = "Неизвестный вид животного, используйте значение Травоядное или Хищник";

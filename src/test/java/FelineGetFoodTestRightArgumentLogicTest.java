@@ -16,7 +16,7 @@ public class FelineGetFoodTestRightArgumentLogicTest {
         this.expectedList = expectedList;
     }
 
-    @Parameterized.Parameters // добавили аннотацию
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}") // добавили аннотацию
     public static Object[][] getListFoodData() {
         return new Object[][]{
                 {"Травоядное", List.of("Трава", "Различные растения")},

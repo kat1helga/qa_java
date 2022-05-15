@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -18,7 +17,7 @@ public class CatLogicTest {
         Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         Cat cat = new Cat(feline);
         List<String> result = cat.getFood();
-        Assert.assertEquals("Predator возвращает некорректное значение",List.of("Животные", "Птицы", "Рыба"),result);
+        Assert.assertEquals("Predator возвращает некорректное значение", List.of("Животные", "Птицы", "Рыба"), result);
     }
 
     @Test
@@ -33,22 +32,19 @@ public class CatLogicTest {
         Mockito.when(feline.eatMeat()).thenThrow();
         Cat cat = new Cat(feline);
         boolean throwsException = false;
-        try
-        {
+        try {
             cat.getFood();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             throwsException = true;
         }
         Assert.assertTrue(throwsException);
     }
 
     @Test
-    public void getSoundReturnsRightSound(){
+    public void getSoundReturnsRightSound() {
         Cat cat = new Cat(feline);
         String result = cat.getSound();
         String expectedResult = "Мяу";
-        Assert.assertEquals("Значение не равно Мяу",expectedResult, result);
+        Assert.assertEquals("Значение не равно Мяу", expectedResult, result);
     }
 }
